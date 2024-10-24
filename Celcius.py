@@ -8,6 +8,6 @@ def Konversi(x,y):
     else:
         return "gini lagi gw delete system32 ntar..."
 
-print(str(Konversi(20,1)) + "°R")
-print(str(Konversi(-20,2)) + "°F")
-print(str(Konversi(20,3)) + "°K")
+print(Konversi(54,1))
+print(Konversi(-20,2))
+print(Konversi(22,3))
