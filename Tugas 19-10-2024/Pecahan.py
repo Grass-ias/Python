@@ -3,46 +3,58 @@
 # NIM/Nama    : 24060124140145/Ferdy Prasetya Putra
 # Tanggal     : (19/10/2024)
 # ===========================================================================
-# DEFINISI DAN SPESIFIKASI
+# DEFINISI DAN SPESIFIKASI TIPE
 # ===========================================================================
-# type PecahanCampuran : <bil: integer, n:integer >= 0, d:integer > 0>
-#   {<bil: integer, n:integer >= 0, d:integer > 0> adalah elemen dari pecahan campuran dimana bil adalah bilangan bulat disamping pecahan, n adalah pembilang dari pecahan, dan d adalah penyebut dari pecahan}
-# type Pecahan: <n:integer >= 0, d:integer > 0>
-#   {<n:integer >= 0, d:integer > 0> adalah elemen dari pecahan biasa dimana n adalah sebuah pembilang dan d adalah penyebut}
-# Makepecahanc: <bil: integer, n:integer >= 0, d:integer > 0> -> PecahanCampuran
-#   {Makepecahanc(bil,n,d) adalah sebuah konstruktor untuk mengkonversi bil, n, d menjadi tipe bentukan pecahan campuran}
-# Makepecahanb: <n:integer >= 0, d:integer > 0> -> PecahanBiasa
-#   {makepecahanb(n,d) adalah sebuah konstruktor untuk mengkonversi n, d menjadi tipe bentukan pecahan biasa}
-# Bilangan: PecahanCampuran -> integer
+# type pecahanc: <bil: integer, n:integer >= 0, d:integer > 0>
+#   {<bil: integer, n:integer >= 0, d:integer > 0> adalah elemen dari pecahan campuran}
+# type pecahan: <n:integer >= 0, d:integer > 0>
+#   {<n:integer >= 0, d:integer > 0> adalah elemen dari pecahan biasa}
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI SELEKTOR
+# ===========================================================================
+# Bilangan: pecahan campuran -> integer
 #   {Bilangan(P) adalah selektor untuk mengambil data bilangan dari tipe bentukan pecahan campuran}
-# Pemb: PecahanCampuran -> integer
+# Pemb: pecahan campuran -> integer
 #   {Pemp(P) adalah selektor untuk mengambil data pembilang dari tipe bentukan pecahan campuran}
-# Peny: PecahanCampuran -> integer
+# Peny: pecahan campuran -> integer
 #   {Peny(P) adalah selektor untuk mengambil data penyebut dari tipe bentukan pecahan campuran}
-# PembB: PecahanBiasa -> integer
+# PembB: pecahan biasa -> integer
 #   {PembB(P) adalah selektor untuk mengambil data penyebut dari tipe bentukan pecahan biasa}
-# PenyB: PecahanBiasa -> integer
+# PenyB: pecahan biasa -> integer
 #   {PenyB(P) adalah selektor untuk mengambil data penyebut dari tipe bentukan pecahan biasa}
-# KonversiPecahanB: PecahanCampuran -> PecahanBiasa
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI KONSTRUKTOR
+# ===========================================================================
+# MakePecahanC: integer, integer >= 0, integer > 0 -> PecahanCampuran
+#   {MakePecahanC(bil,n,d) adalah sebuah konstruktor untuk mengkonversi bil, n, d menjadi tipe bentukan pecahan campuran}
+# MakePecahanB: integer >= 0, integer > 0 -> PecahanBiasa
+#   {MakePecahanB(n,d) adalah sebuah konstruktor untuk mengkonversi n, d menjadi tipe bentukan pecahan biasa}
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI OPERATOR
+# ===========================================================================
+# KonversiPecahanB: pecahan campuran -> pecahan biasa
 #   {KonversiPecahanB(P) adalah sebuah operator untuk mengkonversi tipe bentukan pecahan campuran menjadi pecahan biasa}
-# KonversiPecahanC: PecahanBiasa -> PecahanCampuran
+# KonversiPecahanC: pecahan biasa -> pecahan campuran
 #   {KonversiPecahanC(P) adalah sebuah operator untuk mengkonversi tipe bentukan pecahan biasa menjadi pecahan campuran}
-# KonversiReal: PecahanCampuran -> real
+# KonversiReal: pecahan campuran -> real
 #   {KonversiReal(P) adalah sebuah operator untuk mengkonversi tipe bentukan pecahan campuran menjadi real}
-# AddP: 2 PecahanCampuran -> PecahanBiasa
+# AddP: 2 pecahan campuran -> pecahan biasa
 #   {AddP(P1,P2) adalah sebuah operator untuk menambahkan 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# SubP: 2 PecahanCampuran -> PecahanBiasa
+# SubP: 2 pecahan campuran -> pecahan biasa
 #   {SubP(P1,P2) adalah sebuah operator untuk mengurangi 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# DivP: 2 PecahanCampuran -> PecahanBiasa
+# DivP: 2 pecahan campuran -> pecahan biasa
 #   {DivP(P1,P2) adalah sebuah operator untuk membagi 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# MulP: 2 PecahanCampuran -> PecahanBiasa
+# MulP: 2 pecahan campuran -> pecahan biasa
 #   {MulP(P1,P2) adalah sebuah operator untuk mengali 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# IsEqP?: 2 PecahanCampuran -> boolean
-#   {IsEqP?(P1,P2) adalah sebuah predikat untuk mengoutput true jika kedua pecahan bernilai sama dan false jika sebaliknya}
-# IsLtP?: 2 PecahanCampuran -> boolean
-#   {IsLtP?(P1,P2) adalah sebuah predikat untuk mengoutput true jika pecahan pertama bernilai lebih kecil daripada pecahan kedua}
-# IsGtP?: 2 PecahanCampuran -> boolean
-#   {IsGtP?(P1,P2) adalah sebuah predikat untuk mengoutput true jika pecahan pertama bernilai lebih besar daripada pecahan kedua}
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI PREDIKAT
+# ===========================================================================
+# IsEqP?: 2 pecahan campuran -> boolean
+#   {IsEqP?(P1,P2) adalah sebuah predikat untuk mengeluarkan true jika kedua pecahan bernilai sama dan false jika sebaliknya}
+# IsLtP?: 2 pecahan campuran -> boolean
+#   {IsLtP?(P1,P2) adalah sebuah predikat untuk mengeluarkan true jika pecahan pertama bernilai lebih kecil daripada pecahan kedua}
+# IsGtP?: 2 pecahan campuran -> boolean
+#   {IsGtP?(P1,P2) adalah sebuah predikat untuk mengeluarkan true jika pecahan pertama bernilai lebih besar daripada pecahan kedua}
 # ===========================================================================
 # REALISASI
 # ===========================================================================
