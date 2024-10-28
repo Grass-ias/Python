@@ -83,7 +83,7 @@ def KonversiPecahanB(P):
 def KonversiPecahanC(P):
     if PembB(P) == 0:
         return 0
-    elif PembB(P) == 0:
+    elif PenyB(P) == 0:
         return "Tak Terdefinisi"
     elif PembB(P) == PenyB(P):
         return 1 
