@@ -3,37 +3,51 @@
 # NIM/Nama    : 24060124140145/Ferdy Prasetya Putra
 # Tanggal     : (19/10/2024)
 # ===========================================================================
-# DEFINISI DAN SPESIFIKASI
+# DEFINISI DAN SPESIFIKASI TIPE
 # ===========================================================================
-# type Point: <x: integer, y:integer>
+# type point: <x: integer, y:integer>
 #   {<x: integer, y:integer> adalah elemen dari point dimana x dan y merupakan absis dan ordinat}
-# type Garis: <P1: Point, P2:Point>
+# type garis: <P1: Point, P2:Point>
 #   {<P1,P2> adalah elemen dari garis dimana P1 dan P2 merupakan garis 1 dan garis 2 }
-# Makegaris: <P1: Point, P2:Point> -> Garis
-#   {Makegaris(<P1,P2) adalah sebuah konstruktor untuk mengkonversi x1, y1, x2, y2 menjadi tipe bentukan garis}
-# Absis1: Garis -> integer
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI SELEKTOR
+# ===========================================================================
+# Absis1: garis -> integer
 #   {Absis1(G) adalah selektor untuk mengambil data x dari tipe bentukan point dari garis}
-# Ordinat1: Garis -> integer
+# Ordinat1: garis -> integer
 #   {Ordinat1(G) adalah selektor untuk mengambil data y dari tipe bentukan point dari garis}
-# Absis2: Garis -> integer
+# Absis2: garis -> integer
 #   {Absis2(G) adalah selektor untuk mengambil data x dari tipe bentukan point dari garis}
-# Ordinat2: Garis -> integer
+# Ordinat2: garis -> integer
 #   {Ordinat2(G) adalah selektor untuk mengambil data y dari tipe bentukan point dari garis}
-# Gradien: Garis -> integer
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI KONSTRUKTOR
+# ===========================================================================
+# MakePoint: <x: integer, y: integer> -> point
+#   {MakePoint(x,y) adalah sebuah konstruktor untuk mengkonversi x dan y menjadi tipe bentukan garis}
+# MakeGaris: <P1: point, P2:point> -> garis
+#   {MakeGaris(P1,P2) adalah sebuah konstruktor untuk mengkonversi P1 dan P2 menjadi tipe bentukan garis}
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI OPERASI
+# ===========================================================================
+# Gradien: garis -> integer
 #   {Gradien(G) adalah sebuah operator untuk mencari gradien}
-# PanjangGaris: Garis -> integer
+# PanjangGaris: garis -> integer
 #   {PanjangGaris(G) adalah sebuah operator untuk mencari panjang}
-# IsSejajar: Garis,Garis -> Boolean
+# ===========================================================================
+# DEFINISI DAN SPESIFIKASI PREDIKAT
+# ===========================================================================
+# IsSejajar: 2 garis -> Boolean
 #   {IsSejajar(G1,G2) adalah sebuah operator untuk menentukan apakah garis 1 dan garis 2 sejajar}
-# IsTegakLurus: Garis, Garis -> Boolean
+# IsTegakLurus: 2 garis -> Boolean
 #   {IsTegakLurus(G1,G2) adalah sebuah operator untuk menentukan apakah garis 1 dan garis 2 tegak lurus}
 # ===========================================================================
 # REALISASI
 # ===========================================================================
 
-def Point(x,y):
+def MakePoint(x,y):
     return [x,y]
-def Makegaris(P1,P2):
+def MakeGaris(P1,P2):
     return [P1,P2]
 
 def Absis1(P1):
@@ -57,7 +71,7 @@ def IsTegakLurus(G1,G2):
     return Gradien(G1)*Gradien(G2)==-1
 # ===========================================================================
 # APLIKASI
-print(Gradien(Makegaris(Point(1,-3),Point(2,-6))))
-print(PanjangGaris(Makegaris(Point(1,-2),Point(4,-6))))
-print(IsSejajar(Makegaris(Point(1,-3),Point(2, 5)),Makegaris(Point(1,-3),Point(2,5))))
-print(IsTegakLurus(Makegaris(Point(1,-2),Point(4,-6)),Makegaris(Point(1,6),Point(2,-3))))
+print(Gradien(MakeGaris(MakePoint(1,-3),MakePoint(2,-6))))
+print(PanjangGaris(MakeGaris(MakePoint(1,-2),MakePoint(4,-6))))
+print(IsSejajar(MakeGaris(MakePoint(1,-3),MakePoint(2, 5)),MakeGaris(MakePoint(1,-3),MakePoint(2,5))))
+print(IsTegakLurus(MakeGaris(MakePoint(1,-2),MakePoint(4,-6)),MakeGaris(MakePoint(1,6),MakePoint(2,-3))))
