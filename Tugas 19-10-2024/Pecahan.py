@@ -6,9 +6,9 @@
 # DEFINISI DAN SPESIFIKASI TIPE
 # ===========================================================================
 # type pecahanc: <bil: integer, n:integer >= 0, d:integer > 0>
-#   {<bil: integer, n:integer >= 0, d:integer > 0> adalah elemen dari pecahan campuran}
+#   {<bil, n, d> adalah elemen dari pecahan campuran}
 # type pecahan: <n:integer >= 0, d:integer > 0>
-#   {<n:integer >= 0, d:integer > 0> adalah elemen dari pecahan biasa}
+#   {<n, d> adalah elemen dari pecahan biasa}
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI SELEKTOR
 # ===========================================================================
@@ -58,9 +58,9 @@
 # ===========================================================================
 # REALISASI
 # ===========================================================================
-def Makepecahanc(bil,n,d):
+def MakePecahanC(bil,n,d):
     return [bil,n,d]
-def Makepecahanb(n,d):
+def MakePecahanB(n,d):
     return [n,d]
 
 def Bilangan(P):
@@ -76,9 +76,9 @@ def PenyB(P):
    
 def KonversiPecahanB(P):
     if Pemb(P) >= 0 and Bilangan(P) > 0 and Peny(P) > 0:
-        return Makepecahanb(Bilangan(P)*Peny(P)+Pemb(P),Peny(P))
+        return MakePecahanB(Bilangan(P)*Peny(P)+Pemb(P),Peny(P))
     elif Pemb(P) >= 0 and Bilangan(P) < 0 and Peny(P) > 0:
-        return Makepecahanb(Bilangan(P)*Peny(P)+Pemb(P)*-1,Peny(P))
+        return MakePecahanB(Bilangan(P)*Peny(P)+Pemb(P)*-1,Peny(P))
 
 def KonversiPecahanC(P):
     if PembB(P) == 0:
@@ -104,13 +104,13 @@ def KonversiReal(P):
     return PembB(KonversiPecahanB(P)) / PenyB(KonversiPecahanB(P))
     
 def AddP(P1,P2):
-    return KonversiPecahanC(Makepecahanb(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))+PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), (PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)))))                           
+    return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))+PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), (PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)))))                           
 def SubP(P1,P2):
-    return KonversiPecahanC(Makepecahanb(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))-PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))))
+    return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))-PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))))
 def DivP(P1,P2):
-    return KonversiPecahanC(Makepecahanb(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)), PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1))))
+    return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)), PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1))))
 def MulP(P1,P2):
-    return KonversiPecahanC(Makepecahanb(PembB(KonversiPecahanB(P1))*PembB(KonversiPecahanB(P2)), PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))))
+    return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PembB(KonversiPecahanB(P2)), PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))))
 def IsEqP(P1,P2):
     return KonversiReal(P1) == KonversiReal(P2)
 def IsLtP(P1,P2): 
@@ -120,13 +120,13 @@ def IsGtP(P1,P2):
 
 # ===========================================================================
 # APLIKASI
-print(IsEqP(Makepecahanc(1,1,2), Makepecahanc(1,1,2)))
-print(IsLtP(Makepecahanc(1,1,2), Makepecahanc(2,1,2)))
-print(IsGtP(Makepecahanc(2,1,2), Makepecahanc(1,1,2)))
-print(MulP(Makepecahanc(1,1,2), Makepecahanc(1,1,2))) 
-print(DivP(Makepecahanc(1,1,2), Makepecahanc(1,1,2)))
-print(SubP(Makepecahanc(1,1,2), Makepecahanc(1,1,2)))
-print(AddP(Makepecahanc(1,1,2), Makepecahanc(1,1,2)))
-print(KonversiReal(Makepecahanc(1,1,2)))
-print(KonversiPecahanB(Makepecahanc(1,1,2)))
-print(KonversiPecahanB(Makepecahanc(-1,1,2)))
+print(IsEqP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
+print(IsLtP(MakePecahanC(1,1,2), MakePecahanC(2,1,2)))
+print(IsGtP(MakePecahanC(2,1,2), MakePecahanC(1,1,2)))
+print(MulP(MakePecahanC(1,1,2), MakePecahanC(1,1,2))) 
+print(DivP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
+print(SubP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
+print(AddP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
+print(KonversiReal(MakePecahanC(1,1,2)))
+print(KonversiPecahanB(MakePecahanC(1,1,2)))
+print(KonversiPecahanB(MakePecahanC(-1,1,2)))
