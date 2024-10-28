@@ -7,7 +7,7 @@
 # ===========================================================================
 # type point: <x: integer, y:integer>
 #   {<x: integer, y:integer> adalah elemen dari point dimana x dan y merupakan absis dan ordinat}
-# type garis: <P1: Point, P2:Point>
+# type garis: <P1: point, P2:point>
 #   {<P1,P2> adalah elemen dari garis dimana P1 dan P2 merupakan garis 1 dan garis 2 }
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI SELEKTOR
