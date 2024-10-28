@@ -38,14 +38,14 @@
 #   {KonversiPecahanC(P) adalah sebuah operator untuk mengkonversi tipe bentukan pecahan biasa menjadi pecahan campuran}
 # KonversiReal: pecahan campuran -> real
 #   {KonversiReal(P) adalah sebuah operator untuk mengkonversi tipe bentukan pecahan campuran menjadi real}
-# AddP: 2 pecahan campuran -> pecahan biasa
-#   {AddP(P1,P2) adalah sebuah operator untuk menambahkan 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# SubP: 2 pecahan campuran -> pecahan biasa
-#   {SubP(P1,P2) adalah sebuah operator untuk mengurangi 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# DivP: 2 pecahan campuran -> pecahan biasa
-#   {DivP(P1,P2) adalah sebuah operator untuk membagi 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
-# MulP: 2 pecahan campuran -> pecahan biasa
-#   {MulP(P1,P2) adalah sebuah operator untuk mengali 2 PecahanCampuran dan mengoutputkan sebagai PecahanBiasa}
+# AddP: 2 pecahan campuran -> pecahan campuran
+#   {AddP(P1,P2) adalah sebuah operator untuk menambahkan 2 pecahan campuran dan mengoutputkan sebagai pecahan biasa}
+# SubP: 2 pecahan campuran -> pecahan campuran
+#   {SubP(P1,P2) adalah sebuah operator untuk mengurangi 2 pecahan campuran dan mengoutputkan sebagai pecahan biasa}
+# DivP: 2 pecahan campuran -> pecahan campuran
+#   {DivP(P1,P2) adalah sebuah operator untuk membagi 2 pecahan campuran dan mengoutputkan sebagai pecahan biasa}
+# MulP: 2 pecahan campuran -> pecahan campuran
+#   {MulP(P1,P2) adalah sebuah operator untuk mengali 2 pecahan campuran dan mengoutputkan sebagai pecahan biasa}
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI PREDIKAT
 # ===========================================================================
