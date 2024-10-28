@@ -106,7 +106,7 @@ def KonversiReal(P):
 def AddP(P1,P2):
     return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))+PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), (PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)))))                           
 def SubP(P1,P2):
-    return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))-PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))))
+    return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2))-PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1)), (PenyB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)))))
 def DivP(P1,P2):
     return KonversiPecahanC(MakePecahanB(PembB(KonversiPecahanB(P1))*PenyB(KonversiPecahanB(P2)), PembB(KonversiPecahanB(P2))*PenyB(KonversiPecahanB(P1))))
 def MulP(P1,P2):
