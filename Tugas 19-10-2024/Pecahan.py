@@ -121,12 +121,13 @@ def IsGtP(P1,P2):
 # ===========================================================================
 # APLIKASI
 print(IsEqP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
-print(IsLtP(MakePecahanC(1,1,2), MakePecahanC(2,1,2)))
-print(IsGtP(MakePecahanC(2,1,2), MakePecahanC(1,1,2)))
+print(IsLtP(MakePecahanC(1,1,2), MakePecahanC(2,2,2)))
+print(IsGtP(MakePecahanC(2,2,2), MakePecahanC(1,1,2)))
 print(MulP(MakePecahanC(1,1,2), MakePecahanC(1,1,2))) 
 print(DivP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
-print(SubP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
+print(SubP(MakePecahanC(2,2,2), MakePecahanC(1,1,2)))
 print(AddP(MakePecahanC(1,1,2), MakePecahanC(1,1,2)))
 print(KonversiReal(MakePecahanC(1,1,2)))
 print(KonversiPecahanB(MakePecahanC(1,1,2)))
 print(KonversiPecahanB(MakePecahanC(-1,1,2)))
+print(KonversiPecahanC(MakePecahanB(3,2)))
