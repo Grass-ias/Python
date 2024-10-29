@@ -60,10 +60,10 @@ def Ordinat(G):
     return G[1]
 
 def Gradien(G):
-    return (Ordinat(Tujung(G))-Ordinat(Tpangkal(G))/(Absis(Tujung(G))-Absis(Tpangkal(G))
+    return (Ordinat(Tujung(G))-Ordinat(Tpangkal(G)))/(Absis(Tujung(G))-Absis(Tpangkal(G)))
 
 def PanjangGaris(G):
-    return ((Absis(TitikPangkal(G))-Absis(TitikUjung(G)))**2+(Ordinat(TitikPangkal(G))-Ordinat(TitikUjung(G)))**2)**0.5
+    return ((Absis(Tpangkal(G))-Absis(Tujung(G)))**2+(Ordinat(Tpangkal(G))-Ordinat(Tujung(G)))**2)**0.5
 
 def IsSejajar(G1,G2):
     return Gradien(G1)==Gradien(G2)
