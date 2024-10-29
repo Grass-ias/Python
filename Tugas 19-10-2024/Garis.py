@@ -12,14 +12,14 @@
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI SELEKTOR
 # ===========================================================================
-# Absis1: garis -> integer
-#   {Absis1(G) adalah selektor untuk mengambil data x dari tipe bentukan point dari garis}
-# Ordinat1: garis -> integer
-#   {Ordinat1(G) adalah selektor untuk mengambil data y dari tipe bentukan point dari garis}
-# Absis2: garis -> integer
-#   {Absis2(G) adalah selektor untuk mengambil data x dari tipe bentukan point dari garis}
-# Ordinat2: garis -> integer
-#   {Ordinat2(G) adalah selektor untuk mengambil data y dari tipe bentukan point dari garis}
+# APoint1: garis -> point
+#   {APoint1(G) adalah selektor untuk mengambil data point (titik ujung) dari tipe bentukan point dari garis}
+# APoint2: garis -> point
+#   {APoint2(G) adalah selektor untuk mengambil data point (titik pangkal) dari tipe bentukan point dari garis}
+# Absis: point -> real
+#   {Absis(G) adalah selektor untuk mengambil data x dari tipe bentukan point}
+# Ordinat: point -> real
+#   {Ordinat(G) adalah selektor untuk mengambil data y dari tipe bentukan point}
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
 # ===========================================================================
