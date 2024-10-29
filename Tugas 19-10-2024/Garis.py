@@ -38,9 +38,9 @@
 # DEFINISI DAN SPESIFIKASI PREDIKAT
 # ===========================================================================
 # IsSejajar: 2 garis -> Boolean
-#   {IsSejajar(G1,G2) adalah sebuah operator untuk menentukan apakah garis 1 dan garis 2 sejajar}
+#   {IsSejajar(G1,G2) digunakan untuk menentukan apakah garis 1 dan garis 2 sejajar}
 # IsTegakLurus: 2 garis -> Boolean
-#   {IsTegakLurus(G1,G2) adalah sebuah operator untuk menentukan apakah garis 1 dan garis 2 tegak lurus}
+#   {IsTegakLurus(G1,G2) digunakan untuk menentukan apakah garis 1 dan garis 2 tegak lurus}
 # ===========================================================================
 # REALISASI
 # ===========================================================================
