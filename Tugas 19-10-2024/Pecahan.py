@@ -25,9 +25,9 @@
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
 # ===========================================================================
-# MakePecahanC: integer, integer >= 0, integer > 0 -> PecahanCampuran
+# MakePecahanC: integer, integer >= 0, integer > 0 -> pecahan campuran
 #   {MakePecahanC(bil,n,d) adalah sebuah konstruktor untuk mengkonversi bil, n, d menjadi tipe bentukan pecahan campuran}
-# MakePecahanB: integer >= 0, integer > 0 -> PecahanBiasa
+# MakePecahanB: integer >= 0, integer > 0 -> pecahan biasa
 #   {MakePecahanB(n,d) adalah sebuah konstruktor untuk mengkonversi n, d menjadi tipe bentukan pecahan biasa}
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI OPERATOR
@@ -82,15 +82,15 @@ def KonversiPecahanB(P):
 
 def KonversiPecahanC(P):
     if PembB(P) == 0:
-        return 0
+        return 0,0,0
     elif PenyB(P) == 0:
         return "Tak Terdefinisi"
     elif PembB(P) == PenyB(P):
-        return 1 
+        return 0,PembB(P),PenyB(P)
     elif PembB(P) < PenyB(P):
         return 0,PembB(P),PenyB(P)
     elif PembB(P) % PenyB(P) == 0:
-        return PembB(P)//PenyB(P)
+        return 0,PembB(P),PenyB(P)
     elif PembB(P) < 0 and PenyB(P) > 0 and PembB(P) > PenyB(P):
         return ((PembB(P)*-1)//PenyB(P))*-1,((PembB(P)*-1)%PenyB(P)),PenyB(P)
     elif PembB(P) > 0 and PenyB(P) > 0 and PembB(P) > PenyB(P):
