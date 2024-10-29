@@ -24,7 +24,7 @@
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
 # ===========================================================================
 # MakePoint: <x: integer, y: integer> -> point
-#   {MakePoint(x,y) adalah sebuah konstruktor untuk mengkonversi x dan y menjadi tipe bentukan garis}
+#   {MakePoint(x,y) adalah sebuah konstruktor untuk mengkonversi x dan y menjadi tipe bentukan point}
 # MakeGaris: <P1: point, P2:point> -> garis
 #   {MakeGaris(P1,P2) adalah sebuah konstruktor untuk mengkonversi P1 dan P2 menjadi tipe bentukan garis}
 # ===========================================================================
