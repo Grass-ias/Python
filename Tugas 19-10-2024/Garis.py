@@ -12,10 +12,10 @@
 # ===========================================================================
 # DEFINISI DAN SPESIFIKASI SELEKTOR
 # ===========================================================================
-# APoint1: garis -> point
-#   {APoint1(G) adalah selektor untuk mengambil data point (titik ujung) dari tipe bentukan point dari garis}
-# APoint2: garis -> point
-#   {APoint2(G) adalah selektor untuk mengambil data point (titik pangkal) dari tipe bentukan point dari garis}
+# Tujung: garis -> point
+#   {Tujung(G) adalah selektor untuk mengambil data point (titik ujung) dari tipe bentukan point dari garis}
+# Tpangkal: garis -> point
+#   {Tpangkal(G) adalah selektor untuk mengambil data point (titik pangkal) dari tipe bentukan point dari garis}
 # Absis: point -> real
 #   {Absis(G) adalah selektor untuk mengambil data x dari tipe bentukan point}
 # Ordinat: point -> real
@@ -50,20 +50,20 @@ def MakePoint(x,y):
 def MakeGaris(P1,P2):
     return [P1,P2]
 
-def Absis1(P1):
-    return P1[0]
-def Ordinat1(P1):
-    return P1[1]
-def Absis2(P2):
-    return P2[0]
-def Ordinat2(P2):
-    return P2[1]
+def Tujung(G):
+    return G[0]
+def Tpangkal(G):
+    return G[1]
+def Absis(G):
+    return G[0]
+def Ordinat(G):
+    return G[1]
 
 def Gradien(G):
-    return (Ordinat2(G[1])-Ordinat1(G[0]))/(Absis2(G[1])-Absis1(G[0]))
+    return (Ordinat(Tujung(G))-Ordinat(Tpangkal(G))/(Absis(Tujung(G))-Absis(Tpangkal(G))
 
 def PanjangGaris(G):
-    return ((Absis2(G[1])-Absis1(G[0]))**2+(Ordinat2(G[1])-Ordinat1(G[0]))**2)**0.5
+    return ((Absis(TitikPangkal(G))-Absis(TitikUjung(G)))**2+(Ordinat(TitikPangkal(G))-Ordinat(TitikUjung(G)))**2)**0.5
 
 def IsSejajar(G1,G2):
     return Gradien(G1)==Gradien(G2)
