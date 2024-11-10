@@ -63,3 +63,116 @@ def MakeSetOfMhs(L):
 print(MakeSetOfMhs(MakeMhs('2222', 'Baskara', 'Z', [100, 100, 100]), [MakeMhs('2222', 'Putra', 'Z', [44, 33, 22]), MakeMhs('3333', 'Max', 'Z', [0, 0, 0]), MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])]))
 
 
+#OPERATOR
+# Bagian 2, No. 2a
+
+# MakeSetMhs: Mhs, setofmhs -> setofmhs
+# MakeSetMhs(Mhs, SetMhs) menambahkan mahasiswa Mhs ke dalam SetMhs
+#  - Jika belum ada mahasiswa dengan NIM yang sama
+def MakeSetMhs(Mhs, SetMhs):
+    if IsEmpty(SetMhs):
+        return [Mhs]
+    elif NIMMhs(Mhs) == NIMMhs(FirstElmt(SetMhs)):
+        return SetMhs
+    else:
+        return Konso(FirstElmt(SetMhs), MakeSetMhs(Mhs, Tail(SetMhs)))
+print(MakeSetMhs(MakeMhs('2222', 'Baskara', 'Z', [100, 100, 100]), [MakeMhs('2222', 'Putra', 'Z', [44, 33, 22]), MakeMhs('3333', 'Max', 'Z', [0, 0, 0]), MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])]))
+
+
+# Bagian 2, No. 2b
+
+# MhsLulus: setofmhs -> setofmhs
+# MhsLulus(SetMhs) menghasilkan daftar mahasiswa yang lulus (nilai rata-rata >= 70)
+def MhsLulus(SetMhs):
+    if IsEmpty(SetMhs):
+        return []
+    else:
+        if AvgElmt(NilaiMhs(FirstElmt(SetMhs))) >= 70:
+            return [FirstElmt(SetMhs)] + MhsLulus(Tail(SetMhs))
+        else:
+            return MhsLulus(Tail(SetMhs))
+print(MhsLulus(MakeSetMhs(MakeMhs('11111', 'Baskara', 'Z', [100, 100, 100]), [MakeMhs('2222', 'Putra', 'Z', [44, 33, 22]), MakeMhs('3333', 'Max', 'Z', [0, 0, 0]), MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])])))
+
+# Bagian 2, No. 2c
+
+# MhsnotKuis: setofmhs, string -> setofmhs
+# MhsnotKuis(SetMhs, Kelas) menghasilkan daftar mahasiswa di kelas tertentu yang belum mengumpulkan kuis
+def MhsnotKuis(SetMhs, Kelas):
+    if IsEmpty(SetMhs):
+        return []
+    else:
+        if KelasMhs(FirstElmt(SetMhs)) == Kelas and IsEmpty(NilaiMhs(FirstElmt(SetMhs))):
+            return [FirstElmt(SetMhs)] + MhsnotKuis(Tail(SetMhs), Kelas)
+        else:
+            return MhsnotKuis(Tail(SetMhs), Kelas)
+print(MhsnotKuis(MakeSetOfMhs([MakeMhs('11111', 'Baskara', 'Z', [100, 100, 100]),MakeMhs('2222', 'Putra', 'K', []),MakeMhs('3333', 'Max', 'Z', []),MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])]),'Z'))
+
+# Bagian 2, No. 2d
+
+# NilaiTertinggi: setofmhs -> float
+# NilaiTertinggi(SetMhs) menghasilkan nilai rata-rata tertinggi dari semua mahasiswa
+def NilaiTertinggi(SetMhs):
+    if IsEmpty(SetMhs):
+        return 0
+    elif IsOneElemt(SetMhs):
+        return AvgElmt(NilaiMhs(FirstElmt(SetMhs)))
+    else:
+        return max2(AvgElmt(NilaiMhs(FirstElmt(SetMhs))), NilaiTertinggi(Tail(SetMhs)))
+print(NilaiTertinggi(MakeSetOfMhs([MakeMhs('11111', 'Baskara', 'A', [100, 90, 90]),MakeMhs('2222', 'Putra', 'B', [0,0,0]), MakeMhs('3333', 'Max', 'C', [80,90,100]), MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])])))
+
+# Bagian 2, No. 2e
+
+# NilaiTertinggiKelas: setofmhs, string -> setofmhs
+# NilaiTertinggiKelas(SetMhs, Kelas) menghasilkan mahasiswa dengan nilai rata-rata tertinggi di kelas tertentu
+def NilaiTertinggiKelas(SetMhs,Kelas):
+    if IsEmpty(SetMhs):
+        return []
+    elif IsOneElemt(SetMhs):
+        if KelasMhs(FirstElmt(SetMhs)) == Kelas:
+            return FirstElmt(SetMhs)
+        else:
+            return []
+    else:
+        if KelasMhs(FirstElmt(SetMhs)) == Kelas:
+            if IsEmpty(NilaiTertinggiKelas(Tail(SetMhs),Kelas)):
+                return FirstElmt(SetMhs)
+            
+            elif AvgElmt(NilaiMhs(FirstElmt(SetMhs))) >= AvgElmt(NilaiMhs(NilaiTertinggiKelas(Tail(SetMhs), Kelas))):
+                return FirstElmt(SetMhs)
+            
+            else:
+                return NilaiTertinggiKelas(Tail(SetMhs), Kelas)
+        else:
+            return NilaiTertinggiKelas(Tail(SetMhs),Kelas)
+print("z")
+print(NilaiTertinggiKelas(MakeSetOfMhs([MakeMhs('11111', 'Baskara', 'K', [100, 100, 100]),MakeMhs('2222', 'Putra', 'Z', [44, 33, 22]), MakeMhs('3333', 'Max', 'Z', [0, 0, 0]), MakeMhs('4444', 'Emily', 'S', [100,100,100])]),'Z'))
+
+# Bagian 2, No. 2f
+
+# NBnotKuis: setofmhs -> integer
+# NBnotKuis(SetMhs) menghasilkan jumlah mahasiswa yang belum mengumpulkan kuis
+def NBnotKuis(SetMhs):
+    if IsEmpty(SetMhs):
+        return 0
+    else:
+        if NilaiMhs(FirstElmt(SetMhs)) == []:
+            return 1 + NBnotKuis(Tail(SetMhs))
+        else:
+            return NBnotKuis(Tail(SetMhs))
+print(NBnotKuis(MakeSetOfMhs([MakeMhs('11111', 'Baskara', 'Z', [100, 100, 100]),MakeMhs('2222', 'Putra', 'Z', [44, 33, 22]), MakeMhs('3333', 'Max', 'Z', [0, 0, 0]), MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])])))
+
+# Bagian 2, No. 2g
+
+# NBLulus: setofmhs -> integer
+# NBLulus(SetMhs) menghasilkan jumlah mahasiswa yang lulus (nilai rata-rata >= 70)
+def NBLulus(SetMhs):
+    if IsEmpty(SetMhs):
+        return 0
+    else:
+        if AvgElmt(NilaiMhs(FirstElmt(SetMhs))) >= 70:
+            return 1 + NBLulus(Tail(SetMhs))
+        else:
+            return NBLulus(Tail(SetMhs))
+        
+       
+print(NBLulus(MakeSetOfMhs([MakeMhs('11111', 'Baskara', 'Z', [100, 100, 100]),MakeMhs('2222', 'Putra', 'Z', [44, 33, 22]), MakeMhs('3333', 'Max', 'Z', [0, 0, 0]), MakeMhs('4444', 'Emily', 'Z', [88, 77, 99])])))
